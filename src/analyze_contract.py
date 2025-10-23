@@ -1,5 +1,6 @@
 import json
 import os
+from typing import Dict
 
 DATA_DIR = "data"
 
