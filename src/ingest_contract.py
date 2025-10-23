@@ -7,7 +7,7 @@ load_dotenv()
 
 ETHERSCAN_API_KEY = os.getenv("ETHERSCAN_API_KEY")
 ETHERSCAN_API_URL = "https://api.etherscan.io/v2/api"
-CHAIN_ID = "1"  #Ethereum Mainnet
+CHAIN_ID = "1"  # Ethereum Mainnet
 
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
