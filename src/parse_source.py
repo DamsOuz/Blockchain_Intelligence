@@ -1,4 +1,3 @@
-import json
 import os
 import re
 from typing import Dict, List
@@ -104,6 +103,19 @@ def extract_functions(source: str) -> List[Dict]:
     return functions
 
 
+def extract_state_variables(source: str):
+    var_pattern = re.compile(
+        r"(?:(?:public|private|internal|external)\s+)?(?:constant\s+)?(\w+)\s+(\w+)\s*(?:=\s*[^;]+)?;",
+        re.MULTILINE
+    )
+    variables = []
+    for match in var_pattern.finditer(source):
+        var_type = match.group(1)
+        var_name = match.group(2)
+        variables.append({"name": var_name, "type": var_type})
+    return variables
+
+
 def parse_solidity_source(address: str) -> Dict:
     source = load_source(address)
 
@@ -116,5 +128,6 @@ def parse_solidity_source(address: str) -> Dict:
         "contracts": contracts,
         "imports": imports,
         "modifiers": modifiers,
+        "state_variables": extract_state_variables(source),
         "functions": functions,
     }
