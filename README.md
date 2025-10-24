@@ -35,6 +35,6 @@ ETHERSCAN_API_KEY = your api key
 
 ## Running the project
 
-- ollama serve in a terminal
+- write "ollama serve" in a terminal
 - run main.py and write your questions in the terminal (or 'exit' if you want to stop the code)
 - Examples of questions : "what functions can be called by anyone?"; "which events does it emit when tokens are transferred?"; "who can upgrade the implementation?"; "does it store admin information on-chain?"
